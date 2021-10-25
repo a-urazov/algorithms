@@ -22,7 +22,7 @@ func HasCycle(list *LinkedList) bool {
 
 func FindMiddle(list *LinkedList) *LinkedList {
 	var fast, slow *LinkedList = list, list
-	for fast.Next != nil && fast.Next.Next != nil {
+	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
 	}
