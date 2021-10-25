@@ -9,8 +9,7 @@ func HasCycle(list *LinkedList) bool {
 	if list == nil {
 		return false
 	}
-	fast := list
-	slow := fast
+	var fast, slow *LinkedList = list, list
 	for fast.Next != nil && fast.Next.Next != nil {
 		fast = fast.Next.Next
 		slow = slow.Next
@@ -19,4 +18,13 @@ func HasCycle(list *LinkedList) bool {
 		}
 	}
 	return false
+}
+
+func FindMiddle(list *LinkedList) *LinkedList {
+	var fast, slow *LinkedList = list, list
+	for fast.Next != nil && fast.Next.Next != nil {
+		fast = fast.Next.Next
+		slow = slow.Next
+	}
+	return slow
 }
