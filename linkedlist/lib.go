@@ -40,3 +40,19 @@ func Reverse(list *LinkedList) *LinkedList {
 	}
 	return prev
 }
+
+func IsPolindrome(list *LinkedList) bool {
+	if list == nil {
+		return false
+	}
+	middle := FindMiddle(list)
+	reversed := Reverse(middle)
+	for reversed != nil {
+		if reversed.Value != list.Value {
+			return false
+		}
+		reversed = reversed.Next
+		list = list.Next
+	}
+	return true
+}

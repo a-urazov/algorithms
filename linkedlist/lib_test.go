@@ -108,3 +108,35 @@ func TestReverse(t *testing.T) {
 		})
 	}
 }
+
+func TestIsPolindrome(t *testing.T) {
+	type args struct {
+		list *LinkedList
+	}
+	list1 := &LinkedList{1, nil}
+	list2 := &LinkedList{2, nil}
+	list3 := &LinkedList{2, nil}
+	list4 := &LinkedList{1, nil}
+	list1.Next = list2
+	list2.Next = list3
+	list3.Next = list4
+	list4.Next = nil
+	tests := []struct {
+		name string
+		args args
+		want bool
+	}{
+		{
+			"LinkedList is polindrome",
+			args{list1},
+			true,
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := IsPolindrome(tt.args.list); got != tt.want {
+				t.Errorf("IsPolindrome() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
