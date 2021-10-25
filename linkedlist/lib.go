@@ -28,3 +28,15 @@ func FindMiddle(list *LinkedList) *LinkedList {
 	}
 	return slow
 }
+
+func Reverse(list *LinkedList) *LinkedList {
+	var prev *LinkedList
+	current := list
+	for current != nil {
+		next := current.Next
+		current.Next = prev
+		prev = current
+		current = next
+	}
+	return prev
+}
