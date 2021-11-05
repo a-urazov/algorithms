@@ -1,5 +1,6 @@
 package binary
 
+
 func Search(a []int, v int) int {
 	n := len(a)
 	low, high := 0, n
